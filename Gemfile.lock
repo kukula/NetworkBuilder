@@ -27,8 +27,6 @@ GEM
       tzinfo (~> 0.3.33)
     arel (4.0.0.beta2)
     atomic (1.0.1)
-    bourne (1.2.1)
-      mocha (= 0.12.7)
     builder (3.1.4)
     coffee-rails (4.0.0.beta1)
       coffee-script (>= 2.2.0)
@@ -72,11 +70,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    metaclass (0.0.1)
     mime-types (1.21)
     minitest (4.6.2)
-    mocha (0.12.7)
-      metaclass (~> 0.0.1)
     multi_json (1.7.0)
     polyglot (0.3.3)
     quiet_assets (1.0.2)
@@ -113,9 +108,6 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
-    shoulda-matchers (1.5.0)
-      activesupport (>= 3.0.0)
-      bourne (~> 1.2.0)
     simple_form (1.4.1)
     sprockets (2.9.0)
       hike (~> 1.2)
@@ -162,7 +154,6 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.0.0.beta1)
   rspec-rails
-  shoulda-matchers
   simple_form
   sqlite3
   therubyracer

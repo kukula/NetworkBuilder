@@ -24,7 +24,10 @@ class NetworkLinksController < ApplicationController
     @network_link = NetworkLink.new(network_link_params)
 
     if @network_link.save
-      redirect_to @network_link, notice: 'Network link was successfully created.'
+      respond_to do |format|
+        format.html { redirect_to @network_link, notice: 'Network link was successfully created.' }
+        format.js
+      end
     else
       render action: 'new'
     end
