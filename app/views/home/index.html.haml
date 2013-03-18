@@ -1,0 +1,10 @@
+#map
+
+- content_for :sidebar do
+  %h4 Networks
+  #networks
+  %ul
+    - @network_links.each do |network|
+      %li
+        = network.name
+  %a.btn.btn-mini.add_point= 'Add point'

@@ -1,0 +1,31 @@
+%h1 Listing network_links
+
+%table
+  %tr
+    %th Start lat
+    %th Start lng
+    %th End lat
+    %th End lng
+    %th Capacity
+    %th Color
+    %th Description
+    %th
+    %th
+    %th
+
+  - @network_links.each do |network_link|
+    %tr
+      %td= network_link.start_lat
+      %td= network_link.start_lng
+      %td= network_link.end_lat
+      %td= network_link.end_lng
+      %td= network_link.capacity
+      %td= network_link.color
+      %td= network_link.description
+      %td= link_to 'Show', network_link
+      %td= link_to 'Edit', edit_network_link_path(network_link)
+      %td= link_to 'Destroy', network_link, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Network link', new_network_link_path
