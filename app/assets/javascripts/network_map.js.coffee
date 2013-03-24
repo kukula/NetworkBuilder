@@ -240,7 +240,7 @@ class Location
       draggable = true
       icons = ['chair','cup_coffee','laptop','motherboard','server','web_camera','coffee_machine','hard_disk','monitor','print','user']
       @icon = _.first _.shuffle icons
-    @gicon = new google.maps.MarkerImage("/assets/icons/#{@icon}.png",null,null,null,(new google.maps.Size 48, 48))
+    @gicon = new google.maps.MarkerImage(image_path("#{@icon}.png"),null,null,null,(new google.maps.Size 48, 48))
     @gmarker = new google.maps.Marker
       map: @map.gmap
       position: position
