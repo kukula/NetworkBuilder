@@ -8,11 +8,10 @@ class NetworkMap
     @bind_events()
 
   prepare_networks: ->
-    @networks = new Collection Network, this
+    @networks = new Collection Network, 'network', this
 
   prepare_locations: ->
-    @locations = new Collection Location, this
-    console.log @locations
+    @locations = new Collection Location, 'location', this
 
   initialize_infowindow: ->
     @infowindow = new google.maps.InfoWindow()
@@ -60,7 +59,6 @@ class NetworkMap
     $('#save_location').click (e) =>
       @locations.save()
     $('body').on 'click', '.edit_location', (e) =>
-      console.log $(e.target).data 'location-id'
       @locations.edit $(e.target).data 'location-id'
     $('body').on 'click', '.delete_location', (e) =>
       @locations.delete $(e.target).data 'location-id'
@@ -68,8 +66,7 @@ class NetworkMap
 window.NetworkMap = NetworkMap
 
 class Collection
-  constructor: (@klass, @map) ->
-    @name = @klass.name.toLowerCase()
+  constructor: (@klass, @name, @map) ->
     @collection = []
     $.getJSON @url(), (data) =>
       for item in data
@@ -90,8 +87,6 @@ class Collection
     @open_form()
 
   find: (id) ->
-    console.log @collection
-    console.log id
     _.find @collection, (item) ->
       item.id == id
 
@@ -236,8 +231,6 @@ class Network
 class Location
   constructor: (@map, @id, @name, @description, @lat, @lng, @icon) ->
     @klass_name = 'location'
-    console.log @id
-    @gicon = new google.maps.MarkerImage("/assets/icons/#{@icon}.png",null,null,null,(new google.maps.Size 48, 48))
     if @lat? and @lng?
       position = new google.maps.LatLng @lat, @lng
       draggable = false
@@ -247,6 +240,7 @@ class Location
       draggable = true
       icons = ['chair','cup_coffee','laptop','motherboard','server','web_camera','coffee_machine','hard_disk','monitor','print','user']
       @icon = _.first _.shuffle icons
+    @gicon = new google.maps.MarkerImage("/assets/icons/#{@icon}.png",null,null,null,(new google.maps.Size 48, 48))
     @gmarker = new google.maps.Marker
       map: @map.gmap
       position: position
@@ -295,8 +289,6 @@ class Location
     @gmarker.setVisible false
 
   save: ->
-    console.log 'lol'
-    console.log @gmarker
     @data_from_form()
     @gmarker.setOptions
       draggable: false
