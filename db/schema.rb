@@ -11,16 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130318120132) do
+ActiveRecord::Schema.define(version: 20130324064450) do
 
-  create_table "network_links", force: true do |t|
-    t.float    "start_lat"
-    t.float    "start_lng"
-    t.float    "end_lat"
-    t.float    "end_lng"
-    t.integer  "capacity"
-    t.string   "color"
-    t.string   "description"
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "icon"
+    t.float    "lat"
+    t.float    "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,14 +33,9 @@ ActiveRecord::Schema.define(version: 20130318120132) do
   end
 
   create_table "points", force: true do |t|
-    t.string   "name"
-    t.integer  "network_id"
-    t.float    "lat"
-    t.float    "lng"
-    t.string   "state"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "network_id"
+    t.float   "lat"
+    t.float   "lng"
   end
 
   add_index "points", ["network_id"], name: "index_points_on_network_id"

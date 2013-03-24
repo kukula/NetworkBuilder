@@ -1,6 +1,5 @@
 NetworkBuilder::Application.routes.draw do
-
-  resources :network_links
+  resources :locations
 
   get 'home/index'
   resources :networks do

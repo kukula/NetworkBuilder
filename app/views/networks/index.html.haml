@@ -1,0 +1,27 @@
+%h1 Listing networks
+
+%table.table.table-striped
+  %tr
+    %th Name
+    %th Color
+    %th Capacity
+    %th Description
+    %th Number of points
+    %th
+    %th
+    %th
+
+  - @networks.each do |network|
+    %tr
+      %td= network.name
+      %td= network.color
+      %td= network.capacity
+      %td= network.description
+      %td= network.points.count
+      %td= link_to 'Show', network, class: 'btn'
+      %td= link_to 'Edit', edit_network_path(network), class: 'btn'
+      %td= link_to 'Destroy', network, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn'
+
+%br
+
+= link_to 'New Network', new_network_path

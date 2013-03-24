@@ -24,21 +24,26 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") NetworkBuilder
+          %a.brand(href="/") NetworkBuilder
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Home", root_path
-              %li= link_to "Network Links", network_links_path
+              %li= link_to "Map", root_path
+              %li= link_to "Networks", networks_path
+              %li= link_to "Locations", locations_path
 
     .container-fluid
-
       .row-fluid
-        .span3
-          .well.sidebar-nav= yield(:sidebar)
-        .span9
-          = bootstrap_flash
-          = yield
-    
+        - if content_for? :sidebar
+          .span3
+            .well.sidebar-nav= yield(:sidebar)
+          .span9
+            = bootstrap_flash
+            = yield
+        - else
+          .span12
+            = bootstrap_flash
+            = yield
+
       %footer
         %p &copy; 2013
     /

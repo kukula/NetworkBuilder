@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Network:
+  = @point.network
+%p
+  %b Lat:
+  = @point.lat
+%p
+  %b Lng:
+  = @point.lng
+
+= link_to 'Edit', edit_network_point_path(@network, @point)
+\|
+= link_to 'Back', network_points_path(@network)

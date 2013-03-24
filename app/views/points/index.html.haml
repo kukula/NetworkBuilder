@@ -1,0 +1,23 @@
+%h1 Listing points
+
+%table
+  %tr
+    %th Network
+    %th Lat
+    %th Lng
+    %th
+    %th
+    %th
+
+  - @points.each do |point|
+    %tr
+      %td= point.network
+      %td= point.lat
+      %td= point.lng
+      %td= link_to 'Show', [@network, point]
+      %td= link_to 'Edit', edit_network_point_path(@network, point)
+      %td= link_to 'Destroy', [@network, point], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Point', new_network_point_path(@network)

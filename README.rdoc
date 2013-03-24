@@ -1,28 +1,16 @@
-== README
+== Network Builder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Network Builder is a working prototype of the app that helps you to build networks on a map. App will find your current location with HTML5 geolocate and provide you an ability to CRUD network links on the real map.
 
-Things you may want to cover:
+Implemented with:
+* Ruby 2
+* Rails 4
+* CoffeeScript
+* HTML 5
+* Google Maps API V3
+* jQuery
+* Underscore.JS
+* Icons from VisualPharm
+* etc
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Tested in Chrome browser only.

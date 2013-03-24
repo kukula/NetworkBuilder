@@ -1,0 +1,27 @@
+%h1 Listing locations
+
+%table.table.table-stripped
+  %tr
+    %th Name
+    %th Description
+    %th Icon
+    %th Lat
+    %th Lng
+    %th
+    %th
+    %th
+
+  - @locations.each do |location|
+    %tr
+      %td= location.name
+      %td= location.description
+      %td= location.icon
+      %td= location.lat
+      %td= location.lng
+      %td= link_to 'Show', location, class: 'btn'
+      %td= link_to 'Edit', edit_location_path(location), class: 'btn'
+      %td= link_to 'Destroy', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn'
+
+%br
+
+= link_to 'New Location', new_location_path

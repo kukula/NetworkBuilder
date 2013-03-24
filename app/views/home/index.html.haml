@@ -1,11 +1,18 @@
 #map
-  %ul
-    - @network_links.each do |link|
-      %li{data: link.attributes}
 
 - content_for :sidebar do
   %h4 Networks
-  %a.btn#add_link_btn= 'Add link'
-  #add_link{style: 'display: none'}
-    = render partial: 'form'
-
+  %a.btn#add_network_btn= 'Add network'
+  #add_network{style: 'display: none'}
+    = text_field_tag :network_name, '', {placeholder: 'name'}
+    = text_area_tag :network_description, '', {placeholder: 'description'}
+    = number_field_tag :network_capacity, ''
+    = text_field_tag :network_color, '', {type: 'color'}
+    %a.btn#save_network= 'Save'
+  %h4 Locations
+  %a.btn#add_location_btn= 'Add location'
+  #add_location{style: 'display: none'}
+    = text_field_tag :location_name, '', {placeholder: 'name'}
+    = text_area_tag :location_description, '', {placeholder: 'description'}
+    = hidden_field_tag :location_icon, '', {placeholder: 'icon'}
+    %a.btn#save_location= 'Save'

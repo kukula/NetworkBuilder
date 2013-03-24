@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.beta1'
 
-gem 'sqlite3'
 gem 'thin'
 
 # Gems used only for assets and not required
@@ -14,6 +13,7 @@ group :assets do
   gem 'therubyracer'
   gem 'less-rails'
   gem 'twitter-bootstrap-rails'
+  gem 'underscore-rails'
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -26,7 +26,7 @@ gem 'simple_form'
 # gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 1.0.1'
+gem 'jbuilder', '~> 1.0.1'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -39,10 +39,14 @@ gem 'simple_form'
 
 # To use debugger
 # gem 'debugger'
-
+group :production do
+  gem 'pg'
+end
 group :test, :development do
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
 end
 group :development do
   gem 'quiet_assets'

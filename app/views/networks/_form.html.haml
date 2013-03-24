@@ -1,0 +1,26 @@
+= form_for @network do |f|
+  - if @network.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@network.errors.count, "error")} prohibited this network from being saved:"
+      %ul
+        - @network.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :color
+    = f.text_field :color
+  .field
+    = f.label :capacity
+    = f.number_field :capacity
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.fields_for :points do |p|
+      = p.text_field :lat
+      = p.text_field :lng
+  .actions
+    = f.submit 'Save'
